@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilemas Digitais - Conexão Consciente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fundo Animado de Partículas Interativas -->
+    <div class="background-animation">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">🧠 Dilemas<span>Digitais</span></div>
+            <ul class="nav-links">
+                <li><a href="#dilemas">Dilemas</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#teste">Fazer o Teste</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Seção de Introdução -->
+        <section class="hero-section">
+            <h1>Navegando no Caos Digital</h1>
+            <p>A tecnologia aproxima quem está longe, mas afasta quem está perto. Até onde você está no controle da sua atenção?</p>
+            <a href="#teste" class="btn-primary animate-pulse">Avaliar meu Tempo de Tela</a>
+        </section>
+
+        <!-- Seção de Dilemas -->
+        <section id="dilemas" class="card-section">
+            <h2 class="section-title">🔎 Os Grandes Dilemas</h2>
+            <div class="grid">
+                <div class="card long-press">
+                    <h3>📱 Rolagem Infinita</h3>
+                    <p>O <em>Doomscrolling</em> consome seu tempo de forma invisível através de algoritmos desenhados para retenção eterna.</p>
+                </div>
+                <div class="card long-press">
+                    <h3>🚨 Síndrome de FOMO</h3>
+                    <p>A ansiedade social gerada pelo medo constante de perder qualquer atualização, post ou meme do momento.</p>
+                </div>
+                <div class="card long-press">
+                    <h3>📈 Economia da Atenção</h3>
+                    <p>Sua mente virou o produto. Cada notificação colorida é projetada para hackear sua dopamina.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Soluções -->
+        <section id="solucoes" class="card-section">
+            <h2 class="section-title">💡 Soluções Práticas</h2>
+            <div class="grid">
+                <div class="card success-border">
+                    <h3>🌙 Higiene do Sono</h3>
+                    <p>Desligue todas as telas pelo menos 60 minutos antes de dormir para regenerar seu cérebro.</p>
+                </div>
+                <div class="card success-border">
+                    <h3>⚪ Escala de Cinza</h3>
+                    <p>Mude a tela do celular para preto e branco. Isso remove o apelo visual e o desejo compulsivo.</p>
+                </div>
+                <div class="card success-border">
+                    <h3>🚫 Zonas Livres</h3>
+                    <p>Determine locais da casa (como a mesa de jantar) onde smartphones são estritamente proibidos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção do Teste Interativo -->
+        <section id="teste" class="quiz-section">
+            <h2 class="section-title">🗓 Teste: Como está seu Tempo de Tela?</h2>
+            
+            <form id="quizForm">
+                <!-- Pergunta 1 -->
+                <div class="quiz-card">
+                    <p class="question">1. Qual é a primeira coisa que você faz ao acordar?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="1" required>
+                        <span>Alongamento, tomo café ou cuida da rotina pessoal.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="2">
+                        <span>Olha as notificações rapidamente.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="3">
+                        <span>Passa mais de 15 minutos checando as redes sociais ainda na cama.</span>
+                    </label>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="quiz-card">
+                    <p class="question">2. Como você reage quando esquece o celular em casa?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="1" required>
+                        <span>Segue o dia normalmente sem grandes preocupações.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="2">
+                        <span>Sente um leve desconforto, mas consegue focar nas tarefas.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="3">
+                        <span>Sente forte ansiedade e pensa em voltar para buscar de qualquer jeito.</span>
+                    </label>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="quiz-card">
+                    <p class="question">3. Com que frequência você usa o celular enquanto conversa com amigos ou família?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="1" required>
+                        <span>Raramente ou nunca.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="2">
+                        <span>Às vezes, quando o assunto esfria ou o aparelho vibra.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="3">
+                        <span>Constantemente, dividindo a atenção o tempo todo.</span>
+                    </label>
+                </div>
+
+                <!-- Pergunta 4 -->
+                <div class="quiz-card">
+                    <p class="question">4. Você já tentou reduzir o tempo de tela e não conseguiu?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="1" required>
+                        <span>Não, quando decido me afastar, consigo facilmente.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="2">
+                        <span>Tentei algumas vezes e funcionou apenas por alguns dias.</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="3">
+                        <span>Tento frequentemente, mas falho no mesmo dia.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">Gerar Diagnóstico Personalizado</button>
+            </form>
+
+            <!-- Janela de Resultado Oculta (Aparece com Animação) -->
+            <div id="resultModal" class="result-modal hidden">
+                <div class="result-content">
+                    <span id="resultIcon" class="result-icon">🟢</span>
+                    <h3 id="resultTitle">Seu Perfil</h3>
+                    <p id="resultText">Responda o quiz para visualizar sua análise detalhada.</p>
+                    <button onclick="closeResult()" class="btn-close">Refazer Teste</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Dilemas Digitais — Desenvolvido para uma navegação mais consciente.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
