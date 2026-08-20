@@ -3,167 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dilemas Digitais - Conexão Consciente</title>
+
+    <title>Dilemas Digitais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Fundo Animado -->
-    <div class="background-animation">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-        <div class="circle c3"></div>
-    </div>
-
-    <header>
+    <header class="header">
         <nav class="navbar">
-            <div class="logo">🧠 Dilemas<span>Digitais</span></div>
-            <ul class="nav-links">
-                <li><a href="#dilemas">Dilemas</a></li>
-                <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#teste">Fazer o Teste</a></li>
-            </ul>
+            <a href="#inicio" class="logo">
+                <span>◈</span> Dilemas Digitais
+            </a>
+
+            <div class="nav-links">
+                <a href="#problemas">Problemas</a>
+                <a href="#solucoes">Soluções</a>
+                <a href="#dicas">Dicas</a>
+                <a href="#quiz">Quiz</a>
+            </div>
+
+            <button class="menu-btn" id="menuBtn">☰</button>
         </nav>
     </header>
 
-    <main class="container">
-        <!-- Introdução -->
-        <section class="hero-section">
-            <h1>Navegando no Caos Digital</h1>
-            <p>A tecnologia aproxima quem está longe, mas afasta quem está perto. Até onde você está no controle da sua atenção?</p>
-            <a href="#teste" class="btn-primary animate-pulse">Avaliar meu Tempo de Tela</a>
-        </section>
+    <main>
 
-        <!-- Seção de Dilemas -->
-        <section id="dilemas" class="card-section">
-            <h2 class="section-title">🔎 Os Grandes Dilemas</h2>
-            <div class="grid">
-                <div class="card long-press">
-                    <h3>📱 Rolagem Infinita</h3>
-                    <p>O <em>Doomscrolling</em> consome seu tempo de forma invisível através de algoritmos desenhados para retenção eterna.</p>
-                </div>
-                <div class="card long-press">
-                    <h3>🚨 Síndrome de FOMO</h3>
-                    <p>A ansiedade social gerada pelo medo constante de perder qualquer atualização, post ou meme do momento.</p>
-                </div>
-                <div class="card long-press">
-                    <h3>📈 Economia da Atenção</h3>
-                    <p>Sua mente virou o produto. Cada notificação colorida é projetada para hackear sua dopamina.</p>
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+
+            <div class="hero-content reveal">
+                <span class="tag">TECNOLOGIA + CONSCIÊNCIA</span>
+
+                <h1>
+                    Você controla
+                    <span>o digital</span>
+                    ou ele controla você?
+                </h1>
+
+                <p>
+                    A tecnologia faz parte da nossa rotina. Mas até que ponto
+                    estamos usando as telas de forma saudável?
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#quiz" class="btn primary">
+                        Descobrir meu perfil →
+                    </a>
+
+                    <a href="#problemas" class="btn secondary">
+                        Explorar dilemas
+                    </a>
                 </div>
             </div>
-        </section>
 
-        <!-- Seção de Soluções -->
-        <section id="solucoes" class="card-section">
-            <h2 class="section-title">💡 Soluções Práticas</h2>
-            <div class="grid">
-                <div class="card success-border">
-                    <h3>🌙 Higiene do Sono</h3>
-                    <p>Desligue todas as telas pelo menos 60 minutos antes de dormir para regenerar seu cérebro.</p>
-                </div>
-                <div class="card success-border">
-                    <h3>⚪ Escala de Cinza</h3>
-                    <p>Mude a tela do celular para preto e branco. Isso remove o apelo visual e o desejo compulsivo.</p>
-                </div>
-                <div class="card success-border">
-                    <h3>🚫 Zonas Livres</h3>
-                    <p>Determine locais da casa (como a mesa de jantar) onde smartphones são estritamente proibidos.</p>
+            <div class="hero-visual reveal">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+
+                <div class="phone">
+                    <div class="phone-notch"></div>
+
+                    <div class="phone-screen">
+                        <span class="screen-time">Tempo de tela</span>
+                        <strong>06:42</strong>
+
+                        <div class="screen-chart">
+                            <span style="height:35%"></span>
+                            <span style="height:55%"></span>
+                            <span style="height:70%"></span>
+                            <span style="height:45%"></span>
+                            <span style="height:85%"></span>
+                            <span style="height:65%"></span>
+                            <span style="height:95%"></span>
+                        </div>
+
+                        <small>Esta semana</small>
+                    </div>
                 </div>
             </div>
+
         </section>
 
-        <!-- Seção do Teste -->
-        <section id="teste" class="quiz-section">
-            <h2 class="section-title">🗓 Teste: Como está seu Tempo de Tela?</h2>
-            
-            <form id="quizForm">
-                <!-- Pergunta 1 -->
-                <div class="quiz-card">
-                    <p class="question">1. Qual é a primeira coisa que você faz ao acordar?</p>
-                    <label class="option-label">
-                        <input type="radio" name="q1" value="1" required>
-                        <span>Alongamento, toma café ou cuida da rotina pessoal.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q1" value="2">
-                        <span>Olha as notificações rapidamente.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q1" value="3">
-                        <span>Passa mais de 15 minutos checando as redes sociais ainda na cama.</span>
-                    </label>
-                </div>
 
-                <!-- Pergunta 2 -->
-                <div class="quiz-card">
-                    <p class="question">2. Como você reage quando esquece o celular em casa?</p>
-                    <label class="option-label">
-                        <input type="radio" name="q2" value="1" required>
-                        <span>Segue o dia normalmente sem grandes preocupações.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q2" value="2">
-                        <span>Sente um leve desconforto, mas consegue focar nas tarefas.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q2" value="3">
-                        <span>Sente forte ansiedade e pensa em voltar para buscar de qualquer jeito.</span>
-                    </label>
-                </div>
+        <!-- NÚMEROS -->
+        <section class="stats">
 
-                <!-- Pergunta 3 -->
-                <div class="quiz-card">
-                    <p class="question">3. Com que frequência você usa o celular enquanto conversa com amigos ou família?</p>
-                    <label class="option-label">
-                        <input type="radio" name="q3" value="1" required>
-                        <span>Raramente ou nunca.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q3" value="2">
-                        <span>Às vezes, quando o assunto esfria ou o aparelho vibra.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q3" value="3">
-                        <span>Constantemente, dividindo a atenção o tempo todo.</span>
-                    </label>
-                </div>
-
-                <!-- Pergunta 4 -->
-                <div class="quiz-card">
-                    <p class="question">4. Você já tentou reduzir o tempo de tela e não conseguiu?</p>
-                    <label class="option-label">
-                        <input type="radio" name="q4" value="1" required>
-                        <span>Não, quando decido me afastar, consigo facilmente.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q4" value="2">
-                        <span>Tentei algumas vezes e funcionou apenas por alguns dias.</span>
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="q4" value="3">
-                        <span>Tento frequentemente, mas falho no mesmo dia.</span>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-submit">Gerar Diagnóstico Personalizado</button>
-            </form>
-
-            <!-- Janela de Resultado Oculta -->
-            <div id="resultModal" class="result-modal hidden">
-                <div class="result-content">
-                    <span id="resultIcon" class="result-icon">🟢</span>
-                    <h3 id="resultTitle">Seu Perfil</h3>
-                    <p id="resultText">Responda o quiz para visualizar sua análise detalhada.</p>
-                    <button type="button" id="btnClose" class="btn-close">Refazer Teste</button>
-                </div>
+            <div class="stat reveal">
+                <strong>24h</strong>
+                <span>disponíveis por dia</span>
             </div>
+
+            <div class="stat reveal">
+                <strong>∞</strong>
+                <span>conteúdo disponível</span>
+            </div>
+
+            <div class="stat reveal">
+                <strong>1</strong>
+                <span>você no controle</span>
+            </div>
+
         </section>
+
+
+        <!-- INTRO -->
+        <section class="intro section">
+
+            <div class="section-title reveal">
+                <span class="tag">O PROBLEMA</span>
+                <h2>O mundo digital trouxe possibilidades incríveis.</h2>
+            </div>
+
+            <p class="intro-text reveal">
+                Podemos aprender, trabalhar, conversar, criar e nos divertir
+                usando a tecnologia. O problema começa quando o uso deixa de
+                ser uma escolha consciente e passa a controlar nossa rotina.
+            </p>
+
+        </section>
+
+
+        <!-- PROBLEMAS -->
+        <section class="section" id="problemas">
+
+            <div class="section-title reveal">
+                <span class="tag">01 — DILEMAS</span>
+                <h2>Quais são os principais problemas?</h2>
+                <p>
+                    Conhecer o problema é o primeiro passo para mudar.
+                </p>
+            </div>
+
+            <div class="cards">
+
+                <article class="card reveal">
+                    <div class="card-icon">📱</div>
+                    <span class="card-number">01</span>
+                    <h3>Excesso de tela</h3>
+                    <p>
+                        Passar muitas horas conectado pode ocupar o espaço
+                        destinado ao sono, estudos, atividade física e
+                        convivência.
+                    </p>
+                    <button class="solution-btn" data-target="solution1">
+                        Ver solução +
+                    </button>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">🔔</div>
+                    <span class="card-number">02</span>
+                    <h3>Notificações</h3>
+                    <p>
+                        Alertas constantes podem interromper tarefas e criar
+                        o hábito de verificar o celular repetidamente.
+                    </p>
+                    <button class="solution-btn" data-target="solution2">
+                        Ver solução +
+                    </button>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">🧠</div>
+                    <span class="card-number">03</span>
+                    <h3>Comparação digital</h3>
+                    <p>
+                        Redes sociais podem mostrar apenas uma parte da vida
+                        das pessoas, criando expectativas irreais.
+                    </p>
+                    <button class="solution-btn" data-target="solution3">
+                        Ver solução +
+                    </button>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">🌙</div>
+                    <span class="card-number">04</span>
+                    <h3>Tela antes de dormir</h3>
+                    <p>
+                        O uso noturno pode ocupar o tempo de descanso e
+                        dificultar a criação de uma rotina tranquila.
+                    </p>
+                    <button class="solution-btn" data-target="solution4">
+                        Ver solução +
+                    </button>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOLUÇÕES -->
+        <section class="solutions section" id="solucoes">
+
+            <div class="section-title reveal">
+                <span class="tag">02 — SOLUÇÕES</span>
+                <h2>Pequenas mudanças fazem diferença.</h2>
+            </div>
+
+            <div class="solution-list">
+
+                <div class="solution reveal" id="solution1">
+                    <span>01</span>
+                    <div>
+                        <h3>Crie limites de tempo</h3>
+                        <p>
+                            Defina horários para utilizar redes sociais,
+                            jogos e entretenimento. Use temporizadores
+                            quando necessário.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="solution reveal" id="solution2">
+                    <span>02</span>
+                    <div>
+                        <h3>Reduza interrupções</h3>
+                        <p>
+                            Desative notificações que não são importantes e
+                            determine momentos específicos para verificar
+                            mensagens.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="solution reveal" id="solution3">
+                    <span>03</span>
+                    <div>
+                        <h3>Questione o que você vê</h3>
+                        <p>
+                            Lembre-se de que as redes sociais mostram
+                            recortes da realidade. Evite comparar sua vida
+                            inteira com o destaque da vida de outra pessoa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="solution reveal" id="solution4">
+                    <span>04</span>
+                    <div>
+                        <h3>Crie uma zona sem telas</h3>
+                        <p>
+                            Experimente deixar o celular longe da cama e
+                            reserve os minutos anteriores ao sono para
+                            atividades mais tranquilas.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DICAS -->
+        <section class="section tips" id="dicas">
+
+            <div class="section-title reveal">
+                <span class="tag">03 — NA PRÁTICA</span>
+                <h2>Como evitar os dilemas digitais?</h2>
+            </div>
+
+            <div class="tips-grid">
+
+                <div class="tip reveal">
+                    <div class="tip-icon">⏱</div>
+                    <h3>Faça pausas</h3>
+                    <p>
+                        Levante, caminhe e mude o foco depois de períodos
+                        prolongados diante da tela.
+                    </p>
+                </div>
+
+                <div class="tip reveal">
+                    <div class="tip-icon">🚫</div>
+                    <h3>Evite o automático</h3>
+                    <p>
+                        Antes de abrir um aplicativo, pergunte:
+                        "Eu realmente quero fazer isso agora?"
+                    </p>
+                </div>
+
+                <div class="tip reveal">
+                    <div class="tip-icon">🎯</div>
+                    <h3>Use com propósito</h3>
+                    <p>
+                        Defina o que você pretende fazer antes de entrar
+                        em uma rede social ou plataforma.
+                    </p>
+                </div>
+
+                <div class="tip reveal">
+                    <div class="tip-icon">🌿</div>
+                    <h3>Viva offline também</h3>
+                    <p>
+                        Reserve espaço para amigos, família, exercícios,
+                        hobbies e momentos sem dispositivos.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ -->
+        <section class="quiz-section section" id="quiz">
+
+            <div class="quiz-header reveal">
+                <span class="tag">04 — QUIZ</span>
+
+                <h2>
+                    Qual é o seu perfil de
+                    <span>tempo de tela?</span>
+                </h2>
+
+                <p>
+                    Responda algumas perguntas e descubra como você se
+                    relaciona com a tecnologia no dia a dia.
+                </p>
+            </div>
+
+            <div class="quiz-container reveal">
+
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <div class="question-counter" id="questionCounter">
+                    Pergunta 1 de 6
+                </div>
+
+                <div id="quizContent">
+
+                    <div class="question">
+                        Você costuma olhar o celular assim que acorda?
+                    </div>
+
+                    <div class="answers">
+
+                        <button class="answer" data-points="3">
+                            <span>A</span>
+                            Sempre. É uma das primeiras coisas que faço.
+                        </button>
+
+                        <button class="answer" data-points="2">
+                            <span>B</span>
+                            Muitas vezes.
+                        </button>
+
+                        <button class="answer" data-points="1">
+                            <span>C</span>
+                            Às vezes.
+                        </button>
+
+                        <button class="answer" data-points="0">
+                            <span>D</span>
+                            Quase nunca.
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="quiz-footer">
+                    <span id="scoreText">Pontuação: 0</span>
+
+                    <button id="nextBtn" class="btn primary next-btn" disabled>
+                        Próxima →
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADO -->
+        <section class="result-section section" id="resultado">
+
+            <div class="result-card">
+
+                <div class="result-icon" id="resultIcon">◈</div>
+
+                <span class="tag">SEU RESULTADO</span>
+
+                <h2 id="resultTitle">
+                    Seu perfil aparecerá aqui
+                </h2>
+
+                <p id="resultDescription">
+                    Responda ao quiz para descobrir seu perfil.
+                </p>
+
+                <div class="result-meter">
+                    <div id="resultMeter"></div>
+                </div>
+
+                <button class="btn secondary" id="restartBtn">
+                    Refazer quiz ↻
+                </button>
+
+            </div>
+
+        </section>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Dilemas Digitais — Desenvolvido para uma navegação mais consciente.</p>
+
+        <div class="footer-logo">
+            <span>◈</span> Dilemas Digitais
+        </div>
+
+        <p>
+            Tecnologia é uma ferramenta. A escolha de como usá-la é sua.
+        </p>
+
+        <span class="copyright">
+            © 2026 Dilemas Digitais
+        </span>
+
     </footer>
 
-    <script src="script.js"></script>
+
+    <script src="scrip.js"></script>
+
 </body>
 </html>
+

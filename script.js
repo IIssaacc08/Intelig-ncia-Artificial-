@@ -1,59 +1,439 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const quizForm = document.getElementById('quizForm');
-    const resultModal = document.getElementById('resultModal');
-    const resultIcon = document.getElementById('resultIcon');
-    const resultTitle = document.getElementById('resultTitle');
-    const resultText = document.getElementById('resultText');
-    const btnClose = document.getElementById('btnClose');
+// ==========================================
+// DILEMAS DIGITAIS
+// JavaScript principal
+// ==========================================
 
-    if (quizForm) {
-        quizForm.addEventListener('submit', function(e) {
-            e.preventDefault();
 
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-            
-            if (answers.length < 4) {
-                alert("Por favor, responda todas as perguntas!");
-                return;
-            }
+// MENU MOBILE
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
 
-            let score = 0;
-            answers.forEach(answer => {
-                score += parseInt(answer.value);
-            });
-
-            // Lógica dos Diagnósticos
-            if (score >= 4 && score <= 6) {
-                resultIcon.textContent = "🟢";
-                resultTitle.textContent = "Navegador Consciente";
-                resultTitle.style.color = "#00ff87";
-                resultText.innerHTML = "<strong>Perfil:</strong> Você possui uma relação saudável e equilibrada com a tecnologia. As telas servem como ferramentas úteis, não como distrações controladoras.<br><br><strong>Recomendação:</strong> Continue assim e ajude pessoas próximas compartilhando seus bons hábitos de desconexão.";
-            } 
-            else if (score >= 7 && score <= 10) {
-                resultIcon.textContent = "🟡";
-                resultTitle.textContent = "Alerta de Conexão";
-                resultTitle.style.color = "#fec107";
-                resultText.innerHTML = "<strong>Perfil:</strong> O mundo digital começou a invadir seus momentos de descanso e foco. Você usa as telas mais tempo do que gostaria por puro automatismo do cérebro.<br><br><strong>Recomendação:</strong> Ative limites de tempo nativos nos aplicativos de redes sociais e determine horários fixos para checar mensagens.";
-            } 
-            else if (score >= 11 && score <= 12) {
-                resultIcon.textContent = "🔴";
-                resultTitle.textContent = "Dependência Digital Alta";
-                resultTitle.style.color = "#ff4b2b";
-                resultText.innerHTML = "<strong>Perfil:</strong> A tecnologia está ditando o ritmo da sua rotina, gerando picos de ansiedade e fragmentando sua produtividade e relações reais.<br><br><strong>Recomendação:</strong> Faça um detox digital completo programado nos fins de semana (24h totalmente offline). Se necessário, busque apoio focado em gerenciar o foco.";
-            }
-
-            resultModal.classList.remove('hidden');
-        });
-    }
-
-    if (btnClose) {
-        btnClose.addEventListener('click', () => {
-            resultModal.classList.add('hidden');
-            quizForm.reset();
-            const testeSection = document.getElementById('teste');
-            if (testeSection) {
-                testeSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
 });
+
+
+// FECHAR MENU AO CLICAR EM UM LINK
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+    });
+
+});
+
+
+// ==========================================
+// ANIMAÇÃO AO ENTRAR NA TELA
+// ==========================================
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("active");
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+
+
+// ==========================================
+// BOTÕES "VER SOLUÇÃO"
+// ==========================================
+
+const solutionButtons = document.querySelectorAll(".solution-btn");
+
+solutionButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const targetId = button.dataset.target;
+
+        const target = document.getElementById(targetId);
+
+        if (!target) return;
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        target.style.borderColor = "#8b5cf6";
+
+        setTimeout(() => {
+            target.style.borderColor = "";
+        }, 1500);
+
+    });
+
+});
+
+
+// ==========================================
+// QUIZ
+// ==========================================
+
+const questions = [
+
+    {
+        question: "Você costuma olhar o celular assim que acorda?",
+        answers: [
+            ["Sempre. É uma das primeiras coisas que faço.", 3],
+            ["Muitas vezes.", 2],
+            ["Às vezes.", 1],
+            ["Quase nunca.", 0]
+        ]
+    },
+
+    {
+        question: "Quando começa a usar uma rede social, você costuma perder a noção do tempo?",
+        answers: [
+            ["Muito. Quando percebo, passou bastante tempo.", 3],
+            ["Às vezes acontece.", 2],
+            ["Raramente.", 1],
+            ["Consigo controlar bem.", 0]
+        ]
+    },
+
+    {
+        question: "Você usa o celular enquanto deveria estar estudando ou trabalhando?",
+        answers: [
+            ["Frequentemente.", 3],
+            ["Às vezes.", 2],
+            ["Raramente.", 1],
+            ["Quase nunca.", 0]
+        ]
+    },
+
+    {
+        question: "Você costuma ficar no celular antes de dormir?",
+        answers: [
+            ["Todos os dias.", 3],
+            ["Na maioria dos dias.", 2],
+            ["Algumas vezes.", 1],
+            ["Evito.", 0]
+        ]
+    },
+
+    {
+        question: "Você verifica notificações mesmo quando não recebeu nenhuma?",
+        answers: [
+            ["Sim, várias vezes.", 3],
+            ["Às vezes.", 2],
+            ["Raramente.", 1],
+            ["Quase nunca.", 0]
+        ]
+    },
+
+    {
+        question: "Você consegue passar algumas horas sem usar redes sociais?",
+        answers: [
+            ["É muito difícil.", 3],
+            ["Preciso me esforçar.", 2],
+            ["Consigo normalmente.", 1],
+            ["Sim, sem problema.", 0]
+        ]
+    }
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+let selectedPoints = null;
+
+
+// ELEMENTOS
+const quizContent = document.getElementById("quizContent");
+const nextBtn = document.getElementById("nextBtn");
+const scoreText = document.getElementById("scoreText");
+const progressBar = document.getElementById("progressBar");
+const questionCounter = document.getElementById("questionCounter");
+
+
+// MOSTRAR PERGUNTA
+function showQuestion() {
+
+    const question = questions[currentQuestion];
+
+    selectedPoints = null;
+
+    nextBtn.disabled = true;
+
+    questionCounter.textContent =
+        `Pergunta ${currentQuestion + 1} de ${questions.length}`;
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    progressBar.style.width = `${progress}%`;
+
+    let html = `
+        <div class="question">
+            ${question.question}
+        </div>
+
+        <div class="answers">
+    `;
+
+    question.answers.forEach((answer, index) => {
+
+        html += `
+            <button
+                class="answer"
+                data-points="${answer[1]}"
+            >
+                <span>${String.fromCharCode(65 + index)}</span>
+                ${answer[0]}
+            </button>
+        `;
+
+    });
+
+    html += `</div>`;
+
+    quizContent.innerHTML = html;
+
+
+    // EVENTOS DAS RESPOSTAS
+    document.querySelectorAll(".answer").forEach(answer => {
+
+        answer.addEventListener("click", () => {
+
+            document
+                .querySelectorAll(".answer")
+                .forEach(button => {
+                    button.classList.remove("selected");
+                });
+
+            answer.classList.add("selected");
+
+            selectedPoints =
+                Number(answer.dataset.points);
+
+            nextBtn.disabled = false;
+
+        });
+
+    });
+
+}
+
+
+// BOTÃO PRÓXIMA
+nextBtn.addEventListener("click", () => {
+
+    if (selectedPoints === null) return;
+
+    score += selectedPoints;
+
+    scoreText.textContent =
+        `Pontuação: ${score}`;
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+
+        showQuestion();
+
+    } else {
+
+        showResult();
+
+    }
+
+});
+
+
+// ==========================================
+// RESULTADO
+// ==========================================
+
+function showResult() {
+
+    progressBar.style.width = "100%";
+
+    const resultSection =
+        document.getElementById("resultado");
+
+    const resultTitle =
+        document.getElementById("resultTitle");
+
+    const resultDescription =
+        document.getElementById("resultDescription");
+
+    const resultIcon =
+        document.getElementById("resultIcon");
+
+    const resultMeter =
+        document.getElementById("resultMeter");
+
+
+    let title;
+    let description;
+    let icon;
+    let percentage;
+
+
+    if (score <= 5) {
+
+        title = "Explorador Consciente";
+        icon = "🌿";
+        percentage = 25;
+
+        description =
+            "Você demonstra uma relação relativamente equilibrada com a tecnologia. Continue usando as telas de forma intencional e preserve seus momentos offline.";
+
+    }
+
+    else if (score <= 10) {
+
+        title = "Conectado em Equilíbrio";
+        icon = "⚡";
+        percentage = 50;
+
+        description =
+            "A tecnologia faz bastante parte da sua rotina, mas você ainda consegue estabelecer limites. Pequenas mudanças podem deixar seu uso ainda mais saudável.";
+
+    }
+
+    else if (score <= 14) {
+
+        title = "Sempre Conectado";
+        icon = "📱";
+        percentage = 75;
+
+        description =
+            "Seu celular provavelmente ocupa bastante espaço na sua rotina. Experimente reduzir notificações, criar horários sem tela e fazer pausas conscientes.";
+
+    }
+
+    else {
+
+        title = "Alerta Digital";
+        icon = "🚨";
+        percentage = 95;
+
+        description =
+            "Suas respostas indicam uma forte presença das telas no cotidiano. Vale experimentar limites mais claros e observar como isso afeta sono, estudos, lazer e convivência.";
+
+    }
+
+
+    resultTitle.textContent = title;
+    resultDescription.textContent = description;
+    resultIcon.textContent = icon;
+
+
+    resultSection.scrollIntoView({
+        behavior: "smooth"
+    });
+
+
+    setTimeout(() => {
+
+        resultMeter.style.width =
+            `${percentage}%`;
+
+    }, 300);
+
+}
+
+
+// ==========================================
+// REINICIAR QUIZ
+// ==========================================
+
+const restartBtn =
+    document.getElementById("restartBtn");
+
+restartBtn.addEventListener("click", () => {
+
+    currentQuestion = 0;
+    score = 0;
+    selectedPoints = null;
+
+    scoreText.textContent =
+        "Pontuação: 0";
+
+    document
+        .getElementById("resultMeter")
+        .style.width = "0%";
+
+    showQuestion();
+
+    document
+        .getElementById("quiz")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+});
+
+
+// ==========================================
+// EFEITO DE PARALLAX SUAVE
+// ==========================================
+
+const phone =
+    document.querySelector(".phone");
+
+window.addEventListener("mousemove", (event) => {
+
+    if (window.innerWidth < 800) return;
+
+    const x =
+        (event.clientX / window.innerWidth - 0.5) * 10;
+
+    const y =
+        (event.clientY / window.innerHeight - 0.5) * 10;
+
+    phone.style.transform =
+        `translate(${x}px, ${y}px) rotate(${x / 5}deg)`;
+
+});
+
+
+// ==========================================
+// HEADER MUDA AO ROLAR
+// ==========================================
+
+const header =
+    document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        header.style.background =
+            "rgba(7, 9, 20, .92)";
+
+    } else {
+
+        header.style.background =
+            "rgba(7, 9, 20, .7)";
+
+    }
+
+});
+
+
+// INICIAR QUIZ
+showQuestion();
