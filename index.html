@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilíbrio Digital | Supere os Dilemas Virtuais</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Equilíbrio<span>Digital</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#dilemas">Os Dilemas</a></li>
+                <li><a href="#diagnostico">Teste</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Assuma o Controle da Sua Vida Digital</h1>
+            <p>Algoritmos moldam suas escolhas. Nós ajudamos você a retomar o comando.</p>
+            <a href="#diagnostico" class="btn-primary">Fazer Teste de Hábito</a>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-mobile-alt floating-icon"></i>
+        </div>
+    </section>
+
+    <!-- Dilemas Section -->
+    <section id="dilemas" class="dilemas">
+        <h2>Os Grandes Dilemas Digitais</h2>
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-brain card-icon"></i>
+                <h3>Economia da Atenção</h3>
+                <p>Aplicativos são desenhados para viciar, liberando dopamina para prender sua tela.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-shield card-icon"></i>
+                <h3>Privacidade Exposta</h3>
+                <p>Seus dados são rastreados, transformando seu comportamento em produto comercial.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-newspaper card-icon"></i>
+                <h3>Bolhas Culturais</h3>
+                <p>Algoritmos mostram apenas o que você concorda, polarizando a sociedade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section id="diagnostico" class="quiz-section">
+        <h2>Sua relação com a tecnologia é saudável?</h2>
+        <div class="quiz-container">
+            <div id="quiz">
+                <p class="question">Quanto tempo você passa nas redes sociais por dia?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextQuestion(1)">Menos de 2 horas</button>
+                    <button class="quiz-btn" onclick="nextQuestion(2)">Entre 2 e 4 horas</button>
+                    <button class="quiz-btn" onclick="nextQuestion(3)">Mais de 4 horas</button>
+                </div>
+            </div>
+            <div id="result" class="hidden">
+                <h3>Seu Diagnóstico:</h3>
+                <p id="result-text"></p>
+                <button class="btn-primary" onclick="resetQuiz()">Refazer Teste</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluções Section -->
+    <section id="solucoes" class="solucoes">
+        <h2>Guia de Sobrevivência Digital</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Desative Notificações</h3>
+                    <p>Elimine os gatilhos visuais e sonoros que roubam sua atenção a cada minuto.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Monitore seu Tempo</h3>
+                    <p>Use ferramentas nativas do celular para limitar o uso diário de apps viciantes.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Crie Zonas Sem Telas</h3>
+                    <p>Evite usar aparelhos eletrônicos no quarto ou durante as refeições em família.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Equilíbrio Digital. Conecte-se com o que realmente importa.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
