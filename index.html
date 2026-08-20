@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Fundo Animado de Partículas Interativas -->
+    <!-- Fundo Animado -->
     <div class="background-animation">
         <div class="circle c1"></div>
         <div class="circle c2"></div>
@@ -27,7 +27,7 @@
     </header>
 
     <main class="container">
-        <!-- Seção de Introdução -->
+        <!-- Introdução -->
         <section class="hero-section">
             <h1>Navegando no Caos Digital</h1>
             <p>A tecnologia aproxima quem está longe, mas afasta quem está perto. Até onde você está no controle da sua atenção?</p>
@@ -72,7 +72,7 @@
             </div>
         </section>
 
-        <!-- Seção do Teste Interativo -->
+        <!-- Seção do Teste -->
         <section id="teste" class="quiz-section">
             <h2 class="section-title">🗓 Teste: Como está seu Tempo de Tela?</h2>
             
@@ -82,7 +82,7 @@
                     <p class="question">1. Qual é a primeira coisa que você faz ao acordar?</p>
                     <label class="option-label">
                         <input type="radio" name="q1" value="1" required>
-                        <span>Alongamento, tomo café ou cuida da rotina pessoal.</span>
+                        <span>Alongamento, toma café ou cuida da rotina pessoal.</span>
                     </label>
                     <label class="option-label">
                         <input type="radio" name="q1" value="2">
@@ -148,13 +148,13 @@
                 <button type="submit" class="btn-submit">Gerar Diagnóstico Personalizado</button>
             </form>
 
-            <!-- Janela de Resultado Oculta (Aparece com Animação) -->
+            <!-- Janela de Resultado Oculta -->
             <div id="resultModal" class="result-modal hidden">
                 <div class="result-content">
                     <span id="resultIcon" class="result-icon">🟢</span>
                     <h3 id="resultTitle">Seu Perfil</h3>
                     <p id="resultText">Responda o quiz para visualizar sua análise detalhada.</p>
-                    <button onclick="closeResult()" class="btn-close">Refazer Teste</button>
+                    <button type="button" id="btnClose" class="btn-close">Refazer Teste</button>
                 </div>
             </div>
         </section>

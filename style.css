@@ -1,7 +1,6 @@
-/* Configurações Globais e Variáveis */
 :root {
     --bg-dark: #0a0e17;
-    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-bg: rgba(255, 255, 255, 0.05);
     --card-border: rgba(255, 255, 255, 0.1);
     --text-main: #f3f4f6;
     --text-muted: #9ca3af;
@@ -27,7 +26,7 @@ body {
     position: relative;
 }
 
-/* Animação de Fundo Flutuante (Foco Visual do Site) */
+/* Fundo Animado */
 .background-animation {
     position: fixed;
     top: 0;
@@ -42,7 +41,7 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.15;
+    opacity: 0.12;
     animation: floatAround 20s infinite alternate ease-in-out;
 }
 
@@ -51,29 +50,30 @@ body {
 .c3 { width: 300px; height: 300px; background: var(--color-red); top: 40%; left: 50%; animation-delay: -10s; }
 
 @keyframes floatAround {
-    0% { transform: translateY(0) scale(1) rotate(0deg); }
-    100% { transform: translateY(50px) scale(1.1) rotate(360deg); }
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(50px) scale(1.1); }
 }
 
-/* Topo do Site */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background: rgba(10, 14, 23, 0.7);
+    background: rgba(10, 14, 23, 0.85);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--card-border);
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 100;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .logo span {
@@ -97,22 +97,21 @@ body {
     color: var(--accent-cyan);
 }
 
-/* Conteúdo Principal */
+/* Layout */
 .container {
     max-width: 1200px;
-    margin: 120px auto 60px auto;
+    margin: 140px auto 60px auto;
     padding: 0 20px;
 }
 
-/* Banner de Entrada / Hero */
 .hero-section {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
     animation: fadeInUp 1s ease forwards;
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -127,7 +126,7 @@ body {
     line-height: 1.6;
 }
 
-/* Botões Animados */
+/* Botões */
 .btn-primary {
     display: inline-block;
     padding: 15px 35px;
@@ -136,13 +135,11 @@ body {
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
 }
 
 .animate-pulse {
@@ -155,7 +152,7 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
 }
 
-/* Cartões de Conteúdo (Dilemas e Soluções) */
+/* Grid e Cards */
 .card-section {
     margin-top: 80px;
 }
@@ -164,86 +161,68 @@ body {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 40px;
-    position: relative;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 16px;
-    padding: 30px;
+    padding: 25px;
     backdrop-filter: blur(5px);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s;
+    -webkit-backdrop-filter: blur(5px);
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
-.long-press:hover {
-    border-color: var(--color-red);
-    box-shadow: 0 10px 20px rgba(255, 75, 43, 0.1);
-}
+.long-press:hover { border-color: var(--color-red); }
+.success-border:hover { border-color: var(--color-green); }
 
-.success-border:hover {
-    border-color: var(--color-green);
-    box-shadow: 0 10px 20px rgba(0, 255, 135, 0.1);
-}
+.card h3 { margin-bottom: 12px; font-size: 1.25rem; }
+.card p { color: var(--text-muted); line-height: 1.5; }
 
-.card h3 {
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.card p {
-    color: var(--text-muted);
-    line-net-height: 1.5;
-}
-
-/* Seção do Quiz */
+/* Formulário Quiz */
 .quiz-section {
-    margin-top: 100px;
+    margin-top: 80px;
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 24px;
-    padding: 40px;
+    border-radius: 20px;
+    padding: 35px;
     border: 1px solid var(--card-border);
 }
 
 .quiz-card {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 25px;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 20px;
     border-radius: 12px;
     margin-bottom: 20px;
     border-left: 4px solid var(--accent-cyan);
 }
 
-.question {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
+.question { font-weight: 600; margin-bottom: 15px; }
 
 .option-label {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 8px;
-    margin-top: 10px;
+    margin-top: 8px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .option-label:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateX(4px);
 }
 
 .option-label input[type="radio"] {
@@ -254,109 +233,79 @@ body {
 
 .btn-submit {
     width: 100%;
-    padding: 18px;
+    padding: 16px;
     background: linear-gradient(45deg, var(--color-green), var(--accent-cyan));
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     color: #0a0e17;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
-    transition: filter 0.3s, transform 0.2s;
+    margin-top: 15px;
+    transition: opacity 0.2s;
 }
 
-.btn-submit:hover {
-    filter: brightness(1.2);
-    transform: scale(1.01);
-}
+.btn-submit:hover { opacity: 0.9; }
 
-/* Pop-up de Resultado Dinâmico (Modal Animado) */
+/* Janela Modal do Diagnóstico */
 .result-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 14, 23, 0.9);
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 200;
-    backdrop-filter: blur(15px);
-    transition: opacity 0.4s ease;
 }
 
 .result-content {
-    background: #131a26;
-    border: 2px solid var(--card-border);
-    padding: 40px;
-    border-radius: 24px;
-    max-width: 500px;
+    background: #121824;
+    border: 1px solid var(--card-border);
+    padding: 35px;
+    border-radius: 20px;
+    max-width: 480px;
+    width: 90%;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    animation: zoomIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation: zoomIn 0.4s ease forwards;
 }
 
-.result-icon {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 20px;
-    animation: bounce 2s infinite;
-}
-
-.result-content h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.result-content p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
+.result-icon { font-size: 3.5rem; display: block; margin-bottom: 15px; }
+.result-content h3 { font-size: 1.8rem; margin-bottom: 12px; }
+.result-content p { color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; }
 
 .btn-close {
-    padding: 12px 30px;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.08);
     color: #fff;
     border: 1px solid var(--card-border);
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-weight: 500;
 }
 
-.btn-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
+.btn-close:hover { background: rgba(255, 255, 255, 0.15); }
+.hidden { display: none !important; }
 
-.hidden {
-    display: none !important;
-    opacity: 0;
-}
-
-/* Keyframes de Entrada Globais */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.8); }
+    from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* Rodapé */
 footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border-top: 1px solid var(--card-border);
-    margin-top: 80px;
+    margin-top: 60px;
 }
